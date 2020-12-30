@@ -22,9 +22,37 @@ export default class ${name} extends Component {
 
     static defaultProps = {}
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            clicked: false,
+        }
+    }
+
+    componentDidUpdate() {
+        console.log('${name} componentDidUpdate run after Render');
+    }
+
+    componentDidMount() {
+        console.log('${name} componentDidMount run after Render');
+    }
+
+    componentWillUnmount() {
+        console.log('${name} componentDidMount run just before destruction');
+    }
+
+    handleClick = (e) => {
+        console.log('${name} Clicked');
+        this.setState(
+            {
+                clicked: true,
+            }
+        )
+    }
+
     render(){
         return(
-            <div className="${l_name}"></div>
+            <div className="${l_name}" onClick={this.handleClick}></div>
         )
     }
 }`,

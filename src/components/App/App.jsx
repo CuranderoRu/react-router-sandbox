@@ -1,35 +1,30 @@
 import './App.scss';
 
 import React, { Component } from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
+import Nav from '../Nav/Nav'
+import About from '../About/About'
+import Content from '../Content/Content'
 
 export default class App extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            messages: [],
-            chats: [
-                { name: 'John', id: 1 },
-                { name: 'Piotr', id: 2 },
-                { name: 'Vasja', id: 3 },
-            ],
-            interval: null,
-            newLogin: false,
-            user: { login: '', id: 0 }
-        }
-    }
-
-    componentDidUpdate() {
-        console.log('Updated');
-    }
-
     render() {
-
         return (
-            <div className="app">
-            Hello
-            </div>
+            <Router>
+                <div className="app">
+                    <Nav />
+                    <Switch>
+                        <Route exact path='/about' component={About} />
+                        <Route exact path='/content' component={Content} />
+                    </Switch>
+                </div>
+            </Router>
         )
     }
 }
