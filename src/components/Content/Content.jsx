@@ -3,6 +3,15 @@ import './Content.scss';
 import React, { Component } from 'react';
     
 export default class Content extends Component {
+    
+    constructor(props){
+        super(props);
+    }
+    
+    componentDidMount() {
+        console.log('Content componentDidMount', this.props.match);
+    }
+    
     render(){
         return(
             <main className="content">

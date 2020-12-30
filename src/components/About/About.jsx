@@ -3,6 +3,15 @@ import './About.scss';
 import React, { Component } from 'react';
     
 export default class About extends Component {
+
+    constructor(props){
+        super(props);
+    }
+
+    componentDidMount() {
+        console.log('About componentDidMount', this.props.match);
+    }
+
     render(){
         return(
             <article className="about">
